@@ -1,0 +1,2 @@
+network,vel_x,vel_y,wind,result
+64_128_64_wind_10.pth,-3.0,0.0,10,True
