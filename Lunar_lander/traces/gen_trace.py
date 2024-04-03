@@ -48,9 +48,6 @@ class ReplayBuffer:
         if isinstance(new_state, tuple):
             new_state = np.array(new_state[0]) if len(new_state) > 0 else np.array([])
 
-        # # Debugging print
-        # print("State size:", state.shape, "New state size:", new_state.shape)
-
         e = self.experiences(state, action, reward, new_state, done)
         self.memory.append(e)
 
@@ -95,9 +92,8 @@ class DQNAgent:
                 self.learn(experiences, GAMMA)
                 
     def act(self, state, eps=0.):
-    # Convert state to a NumPy array if it's not already one
+    
         if not isinstance(state, np.ndarray):
-            # Assuming state is a tuple and the actual state information is the first element
             state = np.array(state[0]) if type(state) is tuple else np.array(state)
         
         state = torch.from_numpy(state).float().unsqueeze(0).to(device)
@@ -106,7 +102,7 @@ class DQNAgent:
             action_values = self.local_nn(state)
         self.local_nn.train()
         
-        # Choose action based on epsilon-greedy policy
+        
         if random.random() > eps:
             return np.argmax(action_values.cpu().data.numpy())
         else:
@@ -145,21 +141,21 @@ def dqn(net_name):
    
     
     for i_episode in range(n_episodes):
-        state = env.reset()  # This returns a NumPy array
+        state = env.reset()  
         done = False
         score = 0 
         start_time = time.time()
         while not done:
             if time.time()-start_time>5:
-                state = env.reset()  # This returns a NumPy array
+                state = env.reset()  
                 done = False
                 score = 0
                 start_time = time.time()
                 continue
             action = agent.act(state, eps)
-            next_state, reward, done, _ = env.step(action)[:4]  # next_state is a NumPy array
+            next_state, reward, done, _ = env.step(action)[:4]  
             agent.step(state, action, reward, next_state, done)
-            state = next_state  # Assign the next_state to state for the next iteration
+            state = next_state  
             score += reward
             if done:
                 break
@@ -235,11 +231,11 @@ if __name__ == '__main__':
                     layer_sizes = net
                     agent = DQNAgent(state_size, action_size, layer_sizes)
 
-                    # scores = dqn(net_name)
+                    
 
                     state = env.reset()
                     lander = env.unwrapped.lander
-                    # lander.position = (pos_x, 10)
+                    
                     lander.linearVelocity = (vel_x, vel_y)
                     done = False
                     score = 0 
@@ -256,7 +252,7 @@ if __name__ == '__main__':
                                 start_time = time.time()
                                 state = env.reset()
                                 lander = env.unwrapped.lander
-                                # lander.position = (pos_x, 8)
+                                
                                 lander.linearVelocity = (vel_x, vel_y)
                                 done = False
                                 score = 0 
