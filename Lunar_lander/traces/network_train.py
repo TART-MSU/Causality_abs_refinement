@@ -182,7 +182,7 @@ if __name__ == '__main__':
     winds = [0,5,10,15] 
     for w in winds:
         for n in networks:
-            device = torch.device('cpu')
+            device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
             st = 'lun_model/'
             for j in n:
