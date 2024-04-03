@@ -95,9 +95,8 @@ class DQNAgent:
                 self.learn(experiences, GAMMA)
                 
     def act(self, state, eps=0.):
-    # Convert state to a NumPy array if it's not already one
+    
         if not isinstance(state, np.ndarray):
-            # Assuming state is a tuple and the actual state information is the first element
             state = np.array(state[0]) if type(state) is tuple else np.array(state)
         
         state = torch.from_numpy(state).float().unsqueeze(0).to(device)
@@ -106,7 +105,6 @@ class DQNAgent:
             action_values = self.local_nn(state)
         self.local_nn.train()
         
-        # Choose action based on epsilon-greedy policy
         if random.random() > eps:
             return np.argmax(action_values.cpu().data.numpy())
         else:
@@ -145,21 +143,21 @@ def dqn(net_name):
    
     
     for i_episode in range(n_episodes):
-        state = env.reset()  # This returns a NumPy array
+        state = env.reset()  
         done = False
         score = 0 
         start_time = time.time()
         while not done:
             if time.time()-start_time>5:
-                state = env.reset()  # This returns a NumPy array
+                state = env.reset()  
                 done = False
                 score = 0
                 start_time = time.time()
                 continue
             action = agent.act(state, eps)
-            next_state, reward, done, _ = env.step(action)[:4]  # next_state is a NumPy array
+            next_state, reward, done, _ = env.step(action)[:4]  
             agent.step(state, action, reward, next_state, done)
-            state = next_state  # Assign the next_state to state for the next iteration
+            state = next_state  
             score += reward
             if done:
                 break
@@ -189,7 +187,7 @@ dft = pd.DataFrame(columns=column_namest)
 
 for x in range(500):
 
-    #set the initial vel_x or vel_y
+    
 
     vel_x = float(-10/10)
     vel_y = float(30/10)
@@ -258,8 +256,6 @@ for x in range(500):
 
         if done:
             break
-
-        # score += reward
         
     if reward == 100:
         outcome = True
