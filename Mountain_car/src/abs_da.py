@@ -156,6 +156,6 @@ if __name__ == '__main__':
     paramet = int(len(dft)*alpha)
     c, ref_c, fix_value1 = algo(dft,paramet)
     t2 = time.time()
-    print("In set of trace pos :"+str(fix_value1[0])+"; vel: "+str(fix_value1[1])+"; network: "+str(fix_value1[2])+" cause is "+str(c), " with number of refienmnets "+ str(ref_c))
+    print("In set of trace pos :"+str(fix_value1[0])+"; vel: "+str(fix_value1[1])+"; decision maker: "+str(fix_value1[2])+" cause is "+str(c), " with number of refienmnets "+ str(ref_c))
     print('time',(t2-t1)*1000)
 

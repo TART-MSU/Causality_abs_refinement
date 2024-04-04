@@ -181,7 +181,10 @@ def dqn(net_name):
 if __name__ == '__main__':
 
     filenames = []
-    for path, subdirs, files in os.walk(r'/src/traces/lun_model'):
+    filenames = []
+    pwd = os.getcwd()
+    pwd = os.path.join(pwd, 'lun_model')
+    for path, subdirs, files in os.walk(pwd):
         for filename in files:
             f = os.path.join(filename)
             filenames.append(f)
