@@ -37,7 +37,7 @@ To run experiments with the **Only_DA** and **Only_Z3** algorithm mentioned in t
 python /Lunar_lander/src/da.py --init_trace=<No. traces>  
 python /Lunar_lander/src/z3.py --init_trace=<No. traces>  
 ```
-*Note: The provided traces include around 9000 traces. However, you can generate additional traces using the generating codes in `Lunar_lander/traces`.*
+*Note: The provided data include around 9000 traces. However, you can generate additional traces using the generating codes in `Lunar_lander/traces`.*
 
 ## Mountain Car
 ### Generating Data
@@ -61,4 +61,4 @@ To run experiments with the **Only_DA** and **Only_Z3** algorithm mentioned in t
 python /Mountain_car/src/da.py --init_trace=<No. traces>  
 python /Mountain_car/src/z3.py --init_trace=<No. traces>  
 ```
-*Note: The provided traces include around 10000 traces. However, you can generate additional traces using the generating codes in `Mountain_car/traces`.*
+*Note: The provided data include around 10000 traces. However, you can generate additional traces using the generating codes in `Mountain_car/traces`.*
