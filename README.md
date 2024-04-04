@@ -41,7 +41,7 @@ python /Lunar_lander/src/z3.py --init_trace=<No. traces>
 
 ## Mountain Car
 ### Generating Data
-Sam as Lunar Lander we begin with generating traces, to generate traces for a single scenario, use the command below:
+Same as Lunar Lander we begin with generating traces, to generate traces , use the command below:
 ```bash
 python /Mountain_car/traces/gen_traces.py
 ```
