@@ -21,10 +21,8 @@ def over_func(df):
        return merged_df
 
 def MMC1(df,dataorginal):
-    #check AC1
     df2 = df.loc[df['result'] == False]
-    # print(df)
-    #check AC2(a)
+    
     counterexmaple1 = dataorginal
     counterexmaple2 = dataorginal
     counterexmaple3 = dataorginal
@@ -91,8 +89,7 @@ def MMC1(df,dataorginal):
     return False , counterexample , None, None
 
 def MMC2(dataorginal,var,cause,fix_value):
-    # print(fix_value)
-    # print(var)
+    
     vel_x_value = fix_value[0]
     vel_y_value  = fix_value[1]
     network_value = fix_value[2]
@@ -132,7 +129,7 @@ def under_approx(df,parm,refie_c):
     while True:
         refie_c = refie_c + 1
         data = df[0:parm]
-        # print(data)
+        
         res, cause_or_counter,var,fix_value = MMC1(data,df)
         if res == True:
             return data , cause_or_counter , refie_c , var , fix_value
@@ -153,7 +150,7 @@ def over_approx(causet,datat,dft,ref_c,var,fix_value):
     
 def algo(dft,paramet):
     datat , causet, ref_c ,var, fix_value1 =  under_approx(dft,paramet,0)
-    # print(causet,ref_c,var,fix_value1)
+    
     res, c, ref_c, fix_value1 = over_approx(causet,datat,dft,ref_c,var,fix_value1)
     if res==True:
         return c, ref_c, fix_value1
@@ -165,15 +162,15 @@ def algo(dft,paramet):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--init_parm", help="param", default=0.001)
-    # parser.add_argument("--init_data", help="name of data", default="network_data.csv")
+   
     parser.add_argument("--init_trace", help="set of traces", default=100)
     args = parser.parse_args()
 
-    # init_data = str(args.init_data)
+    
     init_parm = float(args.init_parm)
     init_trace = int(args.init_trace)
  
-    # dft = pd.read_csv(init_data)
+    
 
 
     
@@ -184,11 +181,11 @@ if __name__ == '__main__':
     dft = dft.iloc[0:init_trace]
 
     
-    # alpha = 0.01
+    
     t1 = time.time()
     paramet = int(len(dft)*alpha)
     
-    # print(paramet)
+    
     c, ref_c, fix_value1 = algo(dft,paramet)
     t2 = time.time()
     print("In set of tarce vel_x :"+str(fix_value1[0])+"; vel_y: "+str(fix_value1[1])+"; decision maker: "+str(fix_value1[2])+"; wind: "+str(fix_value1[3])+" cause is " +str(c), " with number of refienmnets "+ str(ref_c))

@@ -4,11 +4,11 @@ import time
 import argparse
 
 def Algo_n_abs_z3(df):
-    # print(df)
+    
     df2 = df.loc[df['result'] == False]
     # print(df2)
     f = open("result_z3.txt", "a")
-    #f1 = open("time.txt","a")
+    
 
     t1 = time.time()
 
@@ -32,16 +32,16 @@ def Algo_n_abs_z3(df):
         result_constraint = result_var == True
 
 
-        # Add constraints to the solver
+        
         solver.add(network_constraint)
         solver.add(vel_x_constraint)
         solver.add(vel_y_constraint)
         solver.add(wind_constraint)
         solver.add(result_constraint)
 
-        # Check for satisfiability
+        
         if solver.check() == sat:
-            # Model is satisfiable, retrieve the values
+            
             model = solver.model()
 
             result_row = df.loc[(df['result'] == True) & (df['vel_x'] == row['vel_x']) & (df['vel_y'] == row['vel_y'] ) & (df['network'] != row['network']) & (df['wind'] == row['wind'])]
@@ -76,9 +76,9 @@ def Algo_n_abs_z3(df):
         solver.add(wind_constraint)
         solver.add(result_constraint)
 
-        # Check for satisfiability
+        
         if solver.check() == sat:
-            # Model is satisfiable, retrieve the values
+           
             model = solver.model()
 
             result_row1 = df.loc[(df['result'] == True) & (df['vel_x'] != row['vel_x']) & (df['vel_y'] == row['vel_y'] ) & (df['network'] == row['network']) & (df['wind'] == row['wind'])]
@@ -107,16 +107,16 @@ def Algo_n_abs_z3(df):
         result_constraint = result_var == True
 
 
-        # Add constraints to the solver
+        
         solver.add(network_constraint)
         solver.add(vel_x_constraint)
         solver.add(vel_y_constraint)
         solver.add(wind_constraint)
         solver.add(result_constraint)
 
-        # Check for satisfiability
+        
         if solver.check() == sat:
-            # Model is satisfiable, retrieve the values
+            
             model = solver.model()
 
             result_row2 = df.loc[(df['result'] == True) & (df['vel_x'] == row['vel_x']) & (df['vel_y'] != row['vel_y'] ) & (df['network'] == row['network']) & (df['wind'] == row['wind'])]
@@ -145,16 +145,16 @@ def Algo_n_abs_z3(df):
         result_constraint = result_var == True
 
 
-        # Add constraints to the solver
+        
         solver.add(network_constraint)
         solver.add(vel_x_constraint)
         solver.add(vel_y_constraint)
         solver.add(wind_constraint)
         solver.add(result_constraint)
 
-        # Check for satisfiability
+        
         if solver.check() == sat:
-            # Model is satisfiable, retrieve the values
+            
             model = solver.model()
         
 
@@ -165,9 +165,6 @@ def Algo_n_abs_z3(df):
             if len(result_row3) > 0:
                 f.write("Cause is wind : "+ str(row['wind'])+"\n")
                 pass
-
-
-
 
 
 

@@ -25,11 +25,7 @@ def over_func(df):
 
 def MMC1_z3(df,dataorginal):
     df2 = df.loc[df['result'] == False]
-    # print(df2)
-    # f = open("result_with_SMT_no_abstarct.txt", "a")
-    # f1 = open("time.txt","a")
 
-    t1 = time.time()
     counterexmaple1 = dataorginal
     counterexmaple2 = dataorginal
     counterexmaple3 = dataorginal
@@ -62,23 +58,23 @@ def MMC1_z3(df,dataorginal):
 
         result_constraint = result_var == True
 
-        # Add constraints to the solver
+        
         solver.add(network_constraint)
         solver.add(vel_x_constraint)
         solver.add(vel_y_constraint)
         solver.add(wind_constraint)
         solver.add(result_constraint)
 
-        # Check for satisfiability
+        
         if solver.check() == sat:
-            # Model is satisfiable, retrieve the values
+            
             model = solver.model()
             
 
             result_row = df.loc[(df['result'] == True) & (df['vel_x'] == vel_x_value) & (df['vel_y'] == vel_y_value ) & (df['network'] != network_value) & (df['wind'] == wind_value)]
 
             if len(result_row) > 0:
-                # print('yes')
+                
                 cause = network_value
                 var = 'network'
                 return True ,cause , var, fix_value
@@ -109,16 +105,16 @@ def MMC1_z3(df,dataorginal):
 
         result_constraint = result_var == True
 
-        # Add constraints to the solver
+        
         solver.add(network_constraint)
         solver.add(vel_x_constraint)
         solver.add(vel_y_constraint)
         solver.add(wind_constraint)
         solver.add(result_constraint)
 
-        # Check for satisfiability
+        
         if solver.check() == sat:
-            # Model is satisfiable, retrieve the values
+            
             model = solver.model()
         
 
@@ -131,20 +127,6 @@ def MMC1_z3(df,dataorginal):
                 return True ,cause , var, fix_value
             else:
                 counterexmaple2 = dataorginal.loc[(dataorginal['result'] == True) & (dataorginal['vel_x'] != vel_x_value) & (dataorginal['vel_y'] == vel_y_value) & (dataorginal['network'] == network_value) & (df['wind'] == wind_value)]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         network_var = String('network')
@@ -311,9 +293,9 @@ def MMC2_z3(dataorginal,var,cause,fix_value):
         solver.add(result_constraint)
         solver.add(wind_constraint)
 
-        # Check for satisfiability
+        
         if solver.check() == sat:
-            # Model is satisfiable, retrieve the values
+            
             model = solver.model()
 
             result_row = df.loc[(df['result'] == False) & (df['vel_x'] == vel_x_value) & (df['vel_y'] != vel_y_value ) & (df['network'] != network_value) & (df['wind'] != wind_value)]
@@ -339,16 +321,15 @@ def MMC2_z3(dataorginal,var,cause,fix_value):
 
         result_constraint = result_var == False
 
-        # Add constraints to the solver
+        
         solver.add(network_constraint)
         solver.add(vel_x_constraint)
         solver.add(vel_y_constraint)
         solver.add(result_constraint)
         solver.add(wind_constraint)
 
-        # Check for satisfiability
+        
         if solver.check() == sat:
-            # Model is satisfiable, retrieve the values
             model = solver.model()
         
 
@@ -375,16 +356,16 @@ def MMC2_z3(dataorginal,var,cause,fix_value):
 
         result_constraint = result_var == False
 
-        # Add constraints to the solver
+        
         solver.add(network_constraint)
         solver.add(vel_x_constraint)
         solver.add(vel_y_constraint)
         solver.add(result_constraint)
         solver.add(wind_constraint)
 
-        # Check for satisfiability
+        
         if solver.check() == sat:
-            # Model is satisfiable, retrieve the values
+            
             model = solver.model()
             
 
@@ -402,7 +383,7 @@ def under_approx(df,parm,refie_c):
     while True:
         refie_c = refie_c + 1
         data = df[0:parm]
-        # print(data)
+        
         res, cause_or_counter,var,fix_value = MMC1_z3(data,df)
         if res == True:
             return data , cause_or_counter , refie_c , var , fix_value
@@ -435,17 +416,13 @@ def algo(dft,paramet):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--init_parm", help="param", default=0.001)
-    # parser.add_argument("--init_data", help="name of data", default="network_data.csv")
     parser.add_argument("--init_trace", help="set of traces", default=100)
     args = parser.parse_args()
 
-    # init_data = str(args.init_data)
+    
     init_parm = float(args.init_parm)
     init_trace = int(args.init_trace)
  
-    # dft = pd.read_csv(init_data)
-
-
     
     alpha = init_parm
 

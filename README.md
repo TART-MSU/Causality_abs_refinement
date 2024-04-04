@@ -7,8 +7,6 @@ Before running this code, ensure you have installed the required packages listed
 pip install -r requirements.txt
 ```
 
-## Car Mountain
-
 ## Lunar Lander
 ### Generating Data
 To begin generating traces, we first need to train the networks. For this purpose, you can use the `network_train.py` script.<br>
@@ -41,3 +39,26 @@ python /Lunar_lander/src/z3.py --init_trace=<No. traces>
 ```
 *Note: The provided traces include around 9000 traces. However, you can generate additional traces using the generating codes in `Lunar_lander/traces`.*
 
+## Mountain Car
+### Generating Data
+Sam as Lunar Lander we begin with generating traces, to generate traces for a single scenario, use the command below:
+```bash
+python /Mountain_car/traces/gen_traces.py
+```
+*Note: You can also modify the initial velocity (`vel`) and initial position (`pos`) inside the for loop in lines 14-18 of `/Mountain_car/traces/gen_traces.py`. Currently, they are set as `pos=[-1.2, -1.1, ..., 0.6]` and `vel=[-0.07, -0.06, ..., 0.07]`.*
+
+### Run Experiments
+To run experiments with the **Abs_DA** algorithm mentioned in the paper, use the code below. You can adjust the value of alpha (`α`) in the range [0, 1] and the number of traces in the range [0, 10280]:
+```bash
+python /Mountain_car/src/abs_da.py --init_parm=<α> --init_trace=<No. traces>  
+```
+To run experiments with the **Abs_Z3** algorithm mentioned in the paper, use the code below. You can adjust the value of alpha (`α`) in the range [0, 1] and the number of traces in the range [0, 10280]:
+```bash
+python /Mountain_car/src/abs_z3.py --init_parm=<α> --init_trace=<No. traces>  
+```
+To run experiments with the **Only_DA** and **Only_Z3** algorithm mentioned in the paper, use the code below: You can adjust the value the number of traces in the range [0, 10280]:
+```bash
+python /Mountain_car/src/da.py --init_trace=<No. traces>  
+python /Mountain_car/src/z3.py --init_trace=<No. traces>  
+```
+*Note: The provided traces include around 10000 traces. However, you can generate additional traces using the generating codes in `Mountain_car/traces`.*

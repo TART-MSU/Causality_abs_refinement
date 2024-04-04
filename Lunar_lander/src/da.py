@@ -6,9 +6,9 @@ import argparse
 
 def Algo_n_abs(df):
     df2 = df.loc[df['result'] == False]
-    # print(df2)
+    
     f = open("result_da.txt", "a")
-    # f1 = open("time.txt","a")
+    
 
     t1 = time.time()
     for index, row in df2.iterrows():
@@ -53,8 +53,7 @@ def Algo_n_abs(df):
     f.close()
     t2 = time.time()
     t = t2-t1
-    #f1.write("\n TIME FOR result without SMT no abstarct second attempt: "+ str(t)+"\n")
-    #f1.close()
+    
     f.close()
 
 
