@@ -1,5 +1,5 @@
 # Introduction
-In this repository, you can explore our case studies and their implementation. This repository first presents some visual results observed in the causal analysis part of the paper. It then provides an overview of the implementation details of the proposed algorithm on two case studies: Lunar Lander and Mountain Car from OpenAI Gym.
+In this repository, you can explore our case studies and their implementation. This repository first presents some visual results observed in the causal analysis part of the paper. It then provides a guide for the implementation of the proposed algorithm on two case studies: Lunar Lander and Mountain Car from OpenAI Gym.
 
 ## Causal Analysis
 
