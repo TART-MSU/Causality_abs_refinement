@@ -2,16 +2,13 @@
 In this repository, you can explore our case studies and their implementation. This repository first presents some visual results observed in the causal analysis part of the paper. It then provides an overview of the implementation details of the proposed algorithm on two case studies: Lunar Lander and Mountain Car from OpenAI Gym.
 
 ## Analysis
-<<<<<<< HEAD
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img src="figs/lunar_good.gif" alt="First GIF" style="margin: 10px; width: 40%;">
-    <img src="figs/lunar_bad_1.gif" alt="Second GIF" style="margin: 10px; width: 40%;">
-=======
 
-<div style="display: flex; justify-content: space-between;">
-  <img src="figs/lunar_good.gif" style="width: 40%;" alt="landing"> <img src="figs/lunar_bad_1.gif" style="width: 40%; " alt="not landing">
->>>>>>> a128ace9bcce247d9f1e1731c2b4faacd77f8b4c
-</div>
+<p align="center">
+  <img src="figs/lunar_good.gif" alt="First GIF" style="max-width: 40%; height: auto; margin-right: 10px;">
+  <img src="figs/lunar_bad_1.gif" alt="Second GIF" style="max-width: 40%; height: auto;">
+</p>
+
+
 <br>
 <br>
 In the above GIF images, you can observe two distinct scenarios: the left one results in success, while the right one ends in failure. In both scenarios, there is a wind blowing from left to right. In the scenario on the right, the lander attempts to counteract the wind by extensively using its right engine, but it overcompensates, causing the lander to tilt and become unstable. Consequently, it drifts too far to the left, missing the landing pad and crashing. In the scenario on the left, the lander effectively utilizes its right engine to maintain control and successfully lands.
