@@ -3,11 +3,6 @@ In this repository, you can explore our case studies and their implementation. T
 
 ## Analysis
 
-<p align="center">
-  <img src="figs/lunar_good.gif" alt="First GIF" style="max-width: 40%; height: auto; margin-right: 10px;">
-  <img src="figs/lunar_bad_1.gif" alt="Second GIF" style="max-width: 40%; height: auto;">
-</p>
-
 <p float="left">
   <img src="figs/lunar_good.gif" width="49%" />
   <img src="figs/lunar_bad_1.gif" width="49%" /> 
