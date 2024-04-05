@@ -1,7 +1,7 @@
 # Introduction
 In this repository, you can explore our case studies and their implementation. This repository first presents some visual results observed in the causal analysis part of the paper. It then provides an overview of the implementation details of the proposed algorithm on two case studies: Lunar Lander and Mountain Car from OpenAI Gym.
 
-## Analysis
+## Causal Analysis
 
 <p float="left">
   <img src="figs/lunar_good.gif" width="49%" />
@@ -11,7 +11,7 @@ In this repository, you can explore our case studies and their implementation. T
 
 <br>
 <br>
-In the above GIF images, you can observe two distinct scenarios: the left one results in success, while the right one ends in failure. In both scenarios, there is a wind blowing from left to right. In the scenario on the right, the lander attempts to counteract the wind by extensively using its right engine, but it overcompensates, causing the lander to tilt and become unstable. Consequently, it drifts too far to the left, missing the landing pad and crashing. In the scenario on the left, the lander effectively utilizes its right engine to maintain control and successfully lands.
+In the above GIF images, you can observe two distinct scenarios: the left one results in success, while the right one ends in failure. In both scenarios, there is a wind blowing from left to right. In the scenario on the right, the lander attempts to counteract the wind by extensively using its right engine, but it overcompensates, causing the lander to tilt and become unstable. Consequently, it drifts too far to the left, missing the landing pad and crashing. In the scenario on the left, the lander effectively utilizes its right engine to maintain control and successfully lands. These observations indicate that excessive use of the right engine is the cause of the failure for the lander on the right.
 
 
 
