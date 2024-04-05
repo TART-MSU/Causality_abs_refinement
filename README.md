@@ -2,9 +2,15 @@
 In this repository, you can explore our case studies and their implementation. This repository first presents some visual results observed in the causal analysis part of the paper. It then provides an overview of the implementation details of the proposed algorithm on two case studies: Lunar Lander and Mountain Car from OpenAI Gym.
 
 ## Analysis
+<<<<<<< HEAD
 <div style="display: flex; justify-content: center; align-items: center;">
     <img src="figs/lunar_good.gif" alt="First GIF" style="margin: 10px; width: 40%;">
     <img src="figs/lunar_bad_1.gif" alt="Second GIF" style="margin: 10px; width: 40%;">
+=======
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="figs/lunar_good.gif" style="width: 40%;" alt="landing"> <img src="figs/lunar_bad_1.gif" style="width: 40%; " alt="not landing">
+>>>>>>> a128ace9bcce247d9f1e1731c2b4faacd77f8b4c
 </div>
 <br>
 <br>
