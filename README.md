@@ -4,8 +4,8 @@ In this repository, you can explore our case studies and their implementation. T
 ## Analysis
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="figs/lunar_good.gif" style="width: 45%; max-width: WIDTHpx;" alt="landing">
-  <img src="figs/lunar_bad_1.gif" style="width: 45%; max-width: WIDTHpx;" alt="not landing">
+  <img src="figs/lunar_good.gif" style="width: 40%; max-width: WIDTHpx;" alt="landing">
+  <img src="figs/lunar_bad_1.gif" style="width: 40%; max-width: WIDTHpx;" alt="not landing">
 </div>
 <br>
 <br>
