@@ -1,5 +1,8 @@
-# Introduction
-In this repository, you can explore our case studies and their implementation. This repository first presents some visual results observed in the causal analysis part of the paper. It then provides a guide for the implementation of the proposed algorithm on two case studies: Lunar Lander and Mountain Car from OpenAI Gym.
+<h1 align="center"><a href="https://arxiv.org/pdf/2407.16629">Efficient Discovery of Actual Causality using
+Abstraction-Refinement</a></h1>
+
+## Introduction
+In this repository, you can explore our case studies and their implementation. This repository first presents some visual results observed in the causal analysis part of the paper. It then provides a guide for the implementation of the proposed algorithm on three case studies: Lunar Lander and Mountain Car from OpenAI Gym, and F16 autopilot simulator [link](https://github.com/stanleybak/AeroBenchVVPython.git).
 
 ## Causal Analysis
 
@@ -23,6 +26,56 @@ Before running this code, ensure you have installed the required packages listed
 ```bash
 pip install -r requirements.txt
 ```
+
+### F16 Autopilot Simulator
+#### Generating Data
+
+Now that we have the desired networks, we need to run 2 scenarios to obtain various traces with different initial values. Use the following command to generate tarces for first scenario:
+```bash
+python /f16/traces/gen_sc1.py
+```
+To generate traces for a second scenario, use the command below:
+```bash
+python /f16/traces/gen_sc2.py
+```
+#### Run Experiments
+To run experiments with the **Abs_DA** algorithm mentioned in the paper, use the code below. You can adjust the value of alpha (`α`) in the range [0, 1] and the number of traces in the range [0, 9500] (Fisrt Scenario), [0,22500] (Second Scenario):
+
+Fisrt Scenario:
+
+```bash
+python /f16/src/first_scenario/f16_abs_da.py --init_parm=<α> --init_trace=<No. traces>  
+```
+Second Scenario:
+```bash
+python /f16/src/second_scenario/f16_abs_da_1.py --init_parm=<α> --init_trace=<No. traces>  
+```
+
+
+
+To run experiments with the **Abs_Z3** algorithm mentioned in the paper, use the code below. You can adjust the value of alpha (`α`) in the range [0, 1] and the number of traces in the range [0, 9500] (Fisrt Scenario), [0,22500] (Second Scenario):
+```bash
+python /f16/src/first_scenario/f16_abs_z3.py --init_parm=<α> --init_trace=<No. traces>  
+```
+Second Scenario:
+```bash
+python /f16/src/second_scenario/f16_abs_z3_1.py --init_parm=<α> --init_trace=<No. traces>  
+```
+To run experiments with the **Only_DA** and **Only_Z3** algorithm mentioned in the paper, use the code below: You can adjust the value the number of traces in the range [0, 9500] (Fisrt Scenario), [0,22500] (Second Scenario):
+
+Fisrt Scenario:
+```bash
+python /f16/src/first_scenario/f16_da.py --init_trace=<No. traces>  
+python /f16/src/first_scenario/f16_z3.py --init_trace=<No. traces>  
+```
+
+Second Scenario:
+```bash
+python /f16/src/second_scenario/f16_da.py --init_trace=<No. traces>  
+python /f16/src/second_scenario/f16_z3.py --init_trace=<No. traces>  
+```
+*Note: The provided data include around 9000 traces. However, you can generate additional traces using the generating codes in `f16/src/fisrt_scenario/sc1_data.csv` `f16/src/second_scenario/sc2_data.csv`.*
+
 
 ### Lunar Lander
 #### Generating Data

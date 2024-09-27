@@ -293,7 +293,7 @@ if __name__ == '__main__':
     init_trace = int(args.init_trace)
     
  
-    dft = pd.read_csv('result_case2.csv')
+    dft = pd.read_csv('sc2_data.csv')
 
 
 
@@ -303,5 +303,5 @@ if __name__ == '__main__':
     t1 = time.time()
     Algo_n_abs_z3(dft)
     t2 = time.time()
-    # print('time:', (t2-t1)*1000)
-    # print('Cause in traces saved in file result_z3_1.txt')
+    print('time:', (t2-t1)*1000)
+    print('Cause in traces saved in file result_z3_1.txt')

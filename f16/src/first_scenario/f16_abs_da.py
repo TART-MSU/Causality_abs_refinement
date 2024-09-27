@@ -176,7 +176,7 @@ if __name__ == '__main__':
     
     alpha = init_parm
 
-    dft = pd.read_csv('check_resut.csv')
+    dft = pd.read_csv('sc1_data.csv')
     # dft = dft.sample(frac=1).reset_index(drop=True)
     dft = dft.iloc[0:init_trace]
 

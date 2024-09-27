@@ -650,7 +650,7 @@ if __name__ == '__main__':
     
     alpha = init_parm
 
-    dft = pd.read_csv('result_case2.csv')
+    dft = pd.read_csv('sc2_data.csv')
     # dft = dft.sample(frac=1).reset_index(drop=True)
     dft = dft.iloc[0:init_trace]
 
@@ -658,6 +658,6 @@ if __name__ == '__main__':
     paramet = int(len(dft)*alpha)
     c, ref_c, fix_value1 = algo(dft,paramet)
     t2 = time.time()
-    # print("In set of tarce roll :"+str(fix_value1[0])+"; speed: "+str(fix_value1[1])+"; power: "+str(fix_value1[2])+"; pit: "+str(fix_value1[3])+"; aoa: "+str(fix_value1[4])+"; slip: "+str(fix_value1[5])+" cause is "+str(c), " with number of refienmnets "+ str(ref_c))
-    # print('time',(t2-t1)*1000)
+    print("In set of tarce roll :"+str(fix_value1[0])+"; speed: "+str(fix_value1[1])+"; power: "+str(fix_value1[2])+"; pit: "+str(fix_value1[3])+"; aoa: "+str(fix_value1[4])+"; slip: "+str(fix_value1[5])+" cause is "+str(c), " with number of refienmnets "+ str(ref_c))
+    print('time',(t2-t1)*1000)
 

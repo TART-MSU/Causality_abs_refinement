@@ -64,7 +64,7 @@ if __name__ == '__main__':
     
     init_trace = int(args.init_trace)
  
-    dft = pd.read_csv('check_resut.csv')
+    dft = pd.read_csv('sc1_data.csv')
     dft = dft.sample(frac=1).reset_index(drop=True)
 
 
