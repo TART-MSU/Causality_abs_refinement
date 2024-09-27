@@ -163,7 +163,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--init_parm", help="param", default=0.001)
    
-    parser.add_argument("--init_trace", help="set of traces", default=100)
+    parser.add_argument("--init_trace", help="set of traces", default=5000)
     args = parser.parse_args()
 
     
