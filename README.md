@@ -144,5 +144,7 @@ If you find this paper and repository useful for your research, please consider 
   volume={43},
   number={11},
   pages={4274-4285},
-  doi={10.1109/TCAD.2024.3448299}}
+  doi={10.1109/TCAD.2024.3448299},
+  ISSN={1937-4151},
+  month={Nov}}
 ```
