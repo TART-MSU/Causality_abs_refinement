@@ -132,3 +132,17 @@ python /Mountain_car/src/da.py --init_trace=<No. traces>
 python /Mountain_car/src/z3.py --init_trace=<No. traces>  
 ```
 *Note: The provided data include around 10000 traces. However, you can generate additional traces using the generating codes in `Mountain_car/traces`.*
+
+## Citation
+If you find this paper and repository useful for your research, please consider citing the paper using BibTex below:
+```
+@ARTICLE{rafieioskouei2024causality,
+  author={Rafieioskouei, Arshia and Bonakdarpour, Borzoo},
+  journal={IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems}, 
+  title={Efficient Discovery of Actual Causality Using Abstraction Refinement}, 
+  year={2024},
+  volume={43},
+  number={11},
+  pages={4274-4285},
+  doi={10.1109/TCAD.2024.3448299}}
+```
