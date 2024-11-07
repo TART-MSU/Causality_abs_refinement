@@ -1,4 +1,4 @@
-<h1 align="center"><a href="https://arxiv.org/pdf/2407.16629">Efficient Discovery of Actual Causality using
+<h1 align="center"><a href="https://ieeexplore.ieee.org/document/10745858">Efficient Discovery of Actual Causality using
 Abstraction-Refinement</a></h1>
 
 ## Introduction
